@@ -1,36 +1,28 @@
 # Product Page Swipe File
 
-Full-page clones of high-converting product pages for reference when building new ones. Mirrors the [advertorial-swipes](https://github.com/primalconversions/advertorial-swipes), [listicle-swipes](https://github.com/primalconversions/listicle-swipes), and [quiz-swipes](https://github.com/primalconversions/quiz-swipes) setup.
+Full-page clones of 1 product pages for reference when writing new product pages for clients.
 
-**Live site (once swipes are added):** https://primalconversions.github.io/product-page-swipes/
+**Live site:** https://primalconversions.github.io/product-page-swipes/
 
-## Status
+## How to use
 
-Empty scaffold — drop URLs into `urls.txt` and run the pipeline.
+Each folder under `swipes/` contains:
+- `index.html` — self-contained page (HTML + CSS + images embedded via `monolith`). Click the **view** link below to see it rendered via GitHub Pages, or feed the raw file to an AI for analysis.
+- `source.txt` — the original URL.
 
-## Adding swipes
+Paste the raw `index.html` content (or a link to it) into a Claude conversation when drafting a new product page — the AI can reference hook structure, pacing, proof elements, CTAs, and visual layout.
 
-```bash
-# 1. Append URLs to urls.txt (one per line)
-# 2. Clone only new URLs (skips already-cloned)
-python3 clone_new.py
-
-# 3. If any clone is >50MB, shrink its images
-python3 shrink_images.py swipes/<slug>/index.html
-
-# 4. Strip embedded FB tokens / API keys
-python3 scrub_secrets.py
-
-# 5. Rebuild README index
-python3 build_readme.py
-
-# 6. Push
-git add -A && git commit -m "Add N product page clones" && git push
-```
-
-## Requirements
+## Regenerating / adding new swipes
 
 ```bash
 brew install monolith
-python3 -m pip install --user Pillow
+# Add URLs to urls.txt, then:
+python3 clone.py
+python3 build_readme.py
 ```
+
+## Live swipes (1)
+
+Click **view** to open the rendered page, **raw** to download the file, or **source** to open the original URL.
+
+- `mynutraessence__pages-pms` (26.3 MB) — [view](https://primalconversions.github.io/product-page-swipes/swipes/mynutraessence__pages-pms/index.html) · [raw](https://raw.githubusercontent.com/primalconversions/product-page-swipes/main/swipes/mynutraessence__pages-pms/index.html) · [source](https://mynutraessence.com/pages/pms)
